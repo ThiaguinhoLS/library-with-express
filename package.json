@@ -1,0 +1,26 @@
+{
+  "name": "crud_with_mocha",
+  "version": "1.0.0",
+  "description": "CRUD with express and mocha",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --timeout 10000"
+  },
+  "keywords": [],
+  "author": "ThiaguinhoLS",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
+    "use-strict": "^1.0.1"
+  }
+}
