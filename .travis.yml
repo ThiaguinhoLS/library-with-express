@@ -1,10 +1,3 @@
 language: node_js
 node_js:
   - "stable"
-cache:
-  diretories:
-    - "node_modules"
-install:
-  - npm install
-test:
-  - mocha
