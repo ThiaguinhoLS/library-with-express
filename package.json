@@ -8,7 +8,7 @@
     "test": "mocha --timeout 10000 --exit",
     "test-coverage": "nyc npm test",
     "report-coverage": "nyc --reporter=lcov --reporter=text-lcov npm test && chromium-browser coverage/lcov-report/index.html",
-    "coverage": "npm run test-coverage --report && cat ./coverage/lcov.info | coveralls"
+    "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [],
   "author": "ThiaguinhoLS",

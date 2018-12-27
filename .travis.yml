@@ -6,3 +6,5 @@ cache:
     - "node_modules/"
 after_success:
   - npm run coverage
+before_script:
+  - npm install -g mocha && npm install -g nyc && npm install coveralls
