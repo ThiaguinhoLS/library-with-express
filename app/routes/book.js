@@ -8,26 +8,26 @@ const mongoose = require('mongoose');
 const Book = require('../models/book');
 
 function selectAllBooks(request, response, next) {
-  const query = Book.find({});
-  query.exec(function(err, books) {
-    if (err) {
-      response.send(err);
-    }
-    response.json(books);
+  return Book.find({}).then(books => {
+    response.json(books)
+  })
+  .catch(err => {
+    return response.send(err);
   });
 }
 
 function appendBook(request, response, next) {
   const newBook = new Book(request.body);
-  newBook.save(function(err, book) {
-    if (err) {
+  newBook.save()
+    .then(book => {
+      response.json({
+        message: 'Book added successfully',
+        book: book
+      });
+    })
+    .catch(err => {
       response.send(err);
-    }
-    response.json({
-      message: 'Book added successfully',
-      livro: livro
     });
-  });
 }
 
 function selectBookForId(request, response, next) {
@@ -40,7 +40,7 @@ function selectBookForId(request, response, next) {
 }
 
 function deleteBook(request, response, next) {
-  Book.remove({ _id: request.params.id }, function(err, result) {
+  Book.deleteOne({ _id: request.params.id }, function(err, result) {
     response.json({
       message: 'Book removed successfully',
       result: result

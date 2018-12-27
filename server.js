@@ -17,18 +17,11 @@ const config = require('config');
 
 // Opções da base de dados
 const options = {
-  server: {
-    socketOptions: {
-      keepAlive: 1,
-      connectTimeoutMS: 30000
-    }
+  auth: {
+    user: 'thiaguinhols',
+    pass: 'Th@654750321529'
   },
-  replset: {
-    socketOptions: {
-      keepAlive: 1,
-      connectTimeoutMS: 30000
-    }
-  }
+  useNewUrlParser: true
 };
 
 // Conexão com a base de dados
@@ -60,7 +53,7 @@ app.route('/book')
 
 app.route('/book/:id')
   .get(book.selectBookForId)
-  .delete(book.removeBook)
+  .delete(book.deleteBook)
   .put(book.updateBook);
 
 app.listen(port);
